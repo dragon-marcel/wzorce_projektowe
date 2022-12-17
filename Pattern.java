@@ -1,22 +1,19 @@
 
+import java.sql.Connection;
 
+import wzorce.Adapter.CarAdapter;
+import wzorce.Adapter.CarPL;
+import wzorce.Adapter.CarUSD;
+import wzorce.Adapter.Ford;
 
-import Adapter.Bicycle;
-import Adapter.Car;
-import Adapter.Vehicle;
 
 public class Pattern {
 	public static void main(String args[]) {
-		Car car = new Car();
-		Bicycle bicycle = new Bicycle();
-		addapter(car);
-		addapter(bicycle);
+		CarUSD carUSD = new Ford();
+		CarPL carPl = new CarAdapter(carUSD);
+		carUSD.getSpeed();
+		carPl.getSpeed();
 
 	}
-	private static void addapter(Vehicle vehicle) {
-	    vehicle.starteEngin();
-	    vehicle.soundHorn();
-	    vehicle.pushBreak();
-	}
-
+	
 }
